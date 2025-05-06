@@ -1,24 +1,44 @@
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
 .container {
   width: 100%;
   height: 100%;
-  --s: 200px; /* control the size */
-  --c1: #1d1d1d;
-  --c2: #4e4f51;
-  --c3: #3c3c3c;
-
-  background: repeating-conic-gradient(
-        from 30deg,
-        #0000 0 120deg,
-        var(--c3) 0 180deg
-      )
-      calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
-    repeating-conic-gradient(
-      from 30deg,
-      var(--c1) 0 60deg,
-      var(--c2) 0 120deg,
-      var(--c3) 0 180deg
+  --s: 6em;
+  --d: 0.3em;
+  --bg: #232228;
+  --fg: rgb(90, 92, 102);
+  background-color: var(--bg);
+  background-image: radial-gradient(
+      var(--d) var(--d) at var(--d) var(--d),
+      var(--fg) 100%,
+      transparent 100%
+    ),
+    radial-gradient(
+      var(--d) var(--d) at var(--d) calc(var(--d) + 33.3%),
+      var(--fg) 100%,
+      transparent 100%
+    ),
+    radial-gradient(
+      var(--d) var(--d) at calc(var(--d) + 50%) calc(var(--d) + 50%),
+      var(--fg) 100%,
+      transparent 100%
+    ),
+    radial-gradient(
+      var(--d) var(--d) at calc(var(--d) + 50%) calc(var(--d) + 83.3%),
+      var(--fg) 100%,
+      transparent 100%
     );
-  background-size: var(--s) calc(var(--s) * 0.577);
+  background-size: calc(var(--s) * 0.577350269) var(--s);
+}
+
+@keyframes colors {
+  100% {
+    filter: hue-rotate(360deg);
+  }
 }
 
 section {
